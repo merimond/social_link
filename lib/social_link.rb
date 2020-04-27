@@ -1,6 +1,7 @@
 require "cgi"
 require "social_link/url"
 require "social_link/angel_list"
+require "social_link/bloomberg"
 require "social_link/crunchbase"
 require "social_link/facebook"
 require "social_link/linked_in"
@@ -13,6 +14,7 @@ module SocialLink
 
     result = case parts.host
       when /angel\.co$/       then AngelList.parse(url, parts)
+      when /bloomberg\.com$/  then Bloomberg.parse(url, parts)
       when /crunchbase\.com$/ then Crunchbase.parse(url, parts)
       when /linkedin\.com$/   then LinkedIn.parse(url, parts)
       when /facebook\.com$/   then Facebook.parse(url, parts)
@@ -27,6 +29,7 @@ module SocialLink
 
     case type
       when AngelList::NAME  then AngelList.parse(url, parts)
+      when Bloomberg::NAME  then Bloomberg.parse(url, parts)
       when Crunchbase::NAME then Crunchbase.parse(url, parts)
       when Facebook::NAME   then Facebook.parse(url, parts)
       when LinkedIn::NAME   then LinkedIn.parse(url, parts)
@@ -39,6 +42,7 @@ module SocialLink
   def self.construct(id:, type:, format: nil)
     case type
       when AngelList::NAME  then AngelList.construct(id, format)
+      when Bloomberg::NAME  then Bloomberg.construct(id, format)
       when Crunchbase::NAME then Crunchbase.construct(id, format)
       when Facebook::NAME   then Facebook.construct(id, format)
       when LinkedIn::NAME   then LinkedIn.construct(id, format)
