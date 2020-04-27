@@ -23,6 +23,15 @@ describe SocialLink::LinkedIn do
       assert_equal result, SocialLink::LinkedIn.parse("https://www.linkedin.com/company-beta/529750/")
     end
 
+    it "parses beta format with trailing pages" do
+      result = {
+        type:   "LinkedIn",
+        id:     "529750",
+        format: "company-numeric",
+      }
+      assert_equal result, SocialLink::LinkedIn.parse("https://www.linkedin.com/company-beta/529750/admin")
+    end
+
     it "parses default format" do
       result = {
         type:   "LinkedIn",
