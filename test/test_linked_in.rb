@@ -50,6 +50,15 @@ describe SocialLink::LinkedIn do
       assert_equal result, SocialLink::LinkedIn.parse("https://www.linkedin.com/company/18312366/")
     end
 
+    it "parses default format with trailing pages" do
+      result = {
+        type:   "LinkedIn",
+        id:     "18312366",
+        format: "company-numeric",
+      }
+      assert_equal result, SocialLink::LinkedIn.parse("https://www.linkedin.com/company/18312366/admin")
+    end
+
     it "parses default format with query params" do
       result = {
         type:   "LinkedIn",

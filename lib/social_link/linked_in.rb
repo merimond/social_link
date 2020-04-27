@@ -22,7 +22,9 @@ module SocialLink
       case parts.path.strip.downcase
       when /^\/company-beta\/(\d+)\/?$/
         { id: $1, format: "company-numeric" }
-      when /^\/company\/(\d+)\/?$/
+      when /^\/company\/(\d+)$/
+        { id: $1, format: "company-numeric" }
+      when /^\/company\/(\d+)\//
         { id: $1, format: "company-numeric" }
       when /^\/company\/([^\/]+)\/?/
         { id: $1, format: "company-slug" }
