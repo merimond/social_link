@@ -10,17 +10,17 @@ module SocialLink
       end
       case parts.path.strip
       when /^\/profile\/company\/([a-z0-9]{2,8}:[a-z]{2})$/i
-        { id: $1, format: "ticker" }
+        { id: $1, format: "company-ticker" }
       when /^\/profile\/company\/([a-z0-9]{2,8}:[a-z]{2})-/i
-        { id: $1, format: "ticker" }
+        { id: $1, format: "company-ticker" }
       when /^\/profiles\/people\/([\d]+)$/i
-        { id: $1, format: "personal-numeric" }
+        { id: $1, format: "person-numeric" }
       when /^\/profiles\/people\/([\d]+)-/i
-        { id: $1, format: "personal-numeric" }
+        { id: $1, format: "person-numeric" }
       when /^\/profile\/person\/([\d]+)$/i
-        { id: $1, format: "personal-numeric" }
+        { id: $1, format: "person-numeric" }
       when /^\/profile\/person\/([\d]+)-/i
-        { id: $1, format: "personal-numeric" }
+        { id: $1, format: "person-numeric" }
       else
         nil
       end
@@ -38,9 +38,9 @@ module SocialLink
 
     def self.construct(id, format)
       case format
-      when "ticker"
+      when "company-ticker"
         "https://bloomberg.com/profile/company/#{id}"
-      when "personal-numeric"
+      when "person-numeric"
         "https://bloomberg.com/profile/person/#{id}"
       else
         nil

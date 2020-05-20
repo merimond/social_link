@@ -6,9 +6,9 @@ module SocialLink
     def self.parse_query_based_formats(query)
       case query
       when /^id=(\d+)/
-        { id: $1, format: "personal-numeric" }
+        { id: $1, format: "person-numeric" }
       when /^id=(A[^&]+)/
-        { id: $1, format: "personal-alphanumeric" }
+        { id: $1, format: "person-alphanumeric" }
       else
         nil
       end
@@ -31,9 +31,9 @@ module SocialLink
       when /^\/company\/([^\/]+)\/?/
         { id: $1, format: "company-slug" }
       when /^\/in\/([^\/]+)\/?/
-        { id: $1, format: "personal-slug" }
+        { id: $1, format: "person-slug" }
       when /^\/pub\/([^\/]+\/\w{1,3}\/\w{1,3}\/\w{1,3})\/?/
-        { id: $1, format: "personal-old" }
+        { id: $1, format: "person-old" }
       when /^\/profile\/view/
         parse_query_based_formats(parts.query)
       else
@@ -57,13 +57,13 @@ module SocialLink
         "https://linkedin.com/company/#{id}"
       when "company-slug"
         "https://linkedin.com/company/#{id}"
-      when "personal-old"
+      when "person-old"
         "https://linkedin.com/pub/#{id}"
-      when "personal-slug"
+      when "person-slug"
         "https://linkedin.com/in/#{id}"
-      when "personal-alphanumeric"
+      when "person-alphanumeric"
         "http://www.linkedin.com/profile/view?id=#{id}"
-      when "personal-numeric"
+      when "person-numeric"
         "http://www.linkedin.com/profile/view?id=#{id}"
       else
         nil

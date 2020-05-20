@@ -3,13 +3,13 @@ require 'social_link'
 
 describe SocialLink::Bloomberg do
 
-  describe "ticker format" do
+  describe "company ticker format" do
 
     it "parses default URLs" do
       result = {
         type:   "Bloomberg",
         id:     "214382Z:US",
-        format: "ticker",
+        format: "company-ticker",
       }
       assert_equal result, SocialLink::Bloomberg.parse("https://www.bloomberg.com/profile/company/214382Z:US")
     end
@@ -18,7 +18,7 @@ describe SocialLink::Bloomberg do
       result = {
         type:   "Bloomberg",
         id:     "214382Z:US",
-        format: "ticker",
+        format: "company-ticker",
       }
       assert_equal result, SocialLink::Bloomberg.parse("https://www.bloomberg.com/profile/company/214382Z:US-MDeverywhere-Inc")
     end
@@ -31,7 +31,7 @@ describe SocialLink::Bloomberg do
       result = {
         type:   "Bloomberg",
         id:     "18019402",
-        format: "personal-numeric",
+        format: "person-numeric",
       }
       assert_equal result, SocialLink::Bloomberg.parse("https://www.bloomberg.com/profiles/people/18019402")
     end
@@ -40,7 +40,7 @@ describe SocialLink::Bloomberg do
       result = {
         type:   "Bloomberg",
         id:     "18019402",
-        format: "personal-numeric",
+        format: "person-numeric",
       }
       assert_equal result, SocialLink::Bloomberg.parse("https://www.bloomberg.com/profiles/people/18019402-ramesh-rao")
     end
@@ -53,7 +53,7 @@ describe SocialLink::Bloomberg do
       result = {
         type:   "Bloomberg",
         id:     "18019402",
-        format: "personal-numeric",
+        format: "person-numeric",
       }
       assert_equal result, SocialLink::Bloomberg.parse("https://www.bloomberg.com/profile/person/18019402")
     end
@@ -62,7 +62,7 @@ describe SocialLink::Bloomberg do
       result = {
         type:   "Bloomberg",
         id:     "18019402",
-        format: "personal-numeric",
+        format: "person-numeric",
       }
       assert_equal result, SocialLink::Bloomberg.parse("https://www.bloomberg.com/profile/person/18019402-ramesh-rao")
     end

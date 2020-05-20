@@ -134,7 +134,7 @@ describe SocialLink::LinkedIn do
       result = {
         type:   "LinkedIn",
         id:     "satyadas",
-        format: "personal-slug",
+        format: "person-slug",
       }
       assert_equal result, SocialLink::LinkedIn.parse("https://www.linkedin.com/in/satyadas")
     end
@@ -143,7 +143,7 @@ describe SocialLink::LinkedIn do
       result = {
         type:   "LinkedIn",
         id:     "pedro-da-cunha-15692b2",
-        format: "personal-slug",
+        format: "person-slug",
       }
       assert_equal result, SocialLink::LinkedIn.parse("https://www.linkedin.com/in/pedro-da-cunha-15692b2/detail/photo/")
     end
@@ -156,7 +156,7 @@ describe SocialLink::LinkedIn do
       result = {
         type:   "LinkedIn",
         id:     "8324788",
-        format: "personal-numeric",
+        format: "person-numeric",
       }
       assert_equal result, SocialLink::LinkedIn.parse("http://www.linkedin.com/profile/view?id=8324788")
     end
@@ -169,7 +169,7 @@ describe SocialLink::LinkedIn do
       result = {
         type:   "LinkedIn",
         id:     "AAMAAAFi4FsBpLyzJYzdWbF5iBXKdjYKpKaC_xU",
-        format: "personal-alphanumeric",
+        format: "person-alphanumeric",
       }
       assert_equal result, SocialLink::LinkedIn.parse("https://www.linkedin.com/profile/view?id=AAMAAAFi4FsBpLyzJYzdWbF5iBXKdjYKpKaC_xU")
     end
@@ -178,7 +178,7 @@ describe SocialLink::LinkedIn do
       result = {
         type:   "LinkedIn",
         id:     "ADEAAACyO-IB6V3Dp5YzA0UWvt3-yBrjxjZ_THo",
-        format: "personal-alphanumeric",
+        format: "person-alphanumeric",
       }
       assert_equal result, SocialLink::LinkedIn.parse("https://www.linkedin.com/profile/view?id=ADEAAACyO-IB6V3Dp5YzA0UWvt3-yBrjxjZ_THo&authType=NAME_SEARCH&authToken=p4tC&locale=en_US&srchid=2532768931448858380759&srchindex=1&srchtotal=5&trk=vsrp_people_res_name&trkInfo=VSRPsearchId:2532768931448858380759,VSRPtargetId:11680738,VSRPcmpt:primary,VSRPnm:true,authType:NAME_SEARCH")
     end
@@ -187,7 +187,7 @@ describe SocialLink::LinkedIn do
       result = {
         type:   "LinkedIn",
         id:     "AAkAAAAB0SIB-dUsEu1Zv6043t-xyi8EpOYHYAM",
-        format: "personal-alphanumeric",
+        format: "person-alphanumeric",
       }
       assert_equal result, SocialLink::LinkedIn.parse("https://www.linkedin.com/profile/view?id=AAkAAAAB0SIB-dUsEu1Zv6043t-xyi8EpOYHYAM&authType=NAME_SEARCH&authToken=Tkhu&locale=en_US&trk=tyah&trkInfo=clickedVertical:mynetwork,clickedEntityId:119074,authType:NAME_SEARCH,idx:2-1-3,tarId:1446686688308,tas:shiraz")
     end
@@ -200,7 +200,7 @@ describe SocialLink::LinkedIn do
       result = {
         type:   "LinkedIn",
         id:     "nick-chonich/104/2bb/a28",
-        format: "personal-old",
+        format: "person-old",
       }
       assert_equal result, SocialLink::LinkedIn.parse("https://www.linkedin.com/pub/nick-chonich/104/2bb/a28")
     end
