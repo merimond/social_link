@@ -54,4 +54,5 @@ describe SocialLink::DealTinder do
     end
 
   end
+
 end
