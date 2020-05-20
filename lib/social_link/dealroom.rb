@@ -5,7 +5,7 @@ module SocialLink
 
     def self.parse_valid(url, parts = nil)
       parts ||= URL.parse(url)
-      unless parts.host =~ /dealroom.co$/
+      unless parts.host =~ /dealroom\.co$/
         return nil
       end
       case parts.path.strip.downcase

@@ -15,7 +15,7 @@ module SocialLink
     def self.parse_valid(url, parts = nil)
       # https://www.facebook.com/help/105399436216001
       parts ||= URL.parse(url)
-      unless parts.host =~ /facebook.com$/
+      unless parts.host =~ /facebook\.com$/
         return nil
       end
       case parts.path.strip.downcase

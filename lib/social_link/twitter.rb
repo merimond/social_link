@@ -6,7 +6,7 @@ module SocialLink
     def self.parse_valid(url, parts = nil)
       # https://help.twitter.com/en/managing-your-account/twitter-username-rules
       parts ||= URL.parse(url)
-      unless parts.host =~ /twitter.com$/
+      unless parts.host =~ /twitter\.com$/
         return nil
       end
       case parts.path.strip.downcase
