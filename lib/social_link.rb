@@ -8,6 +8,7 @@ require "social_link/dealroom"
 require "social_link/deal_tinder"
 require "social_link/facebook"
 require "social_link/linked_in"
+require "social_link/pei"
 require "social_link/sociopath"
 require "social_link/twitter"
 
@@ -16,16 +17,28 @@ module SocialLink
     parts  = URL.parse(url)
 
     result = case parts.host
-      when /angel\.co$/       then AngelList.parse(url, parts)
-      when /bloomberg\.com$/  then Bloomberg.parse(url, parts)
-      when /capitaliq\.com$/  then CapitalIQ.parse(url, parts)
-      when /crunchbase\.com$/ then Crunchbase.parse(url, parts)
-      when /dealroom\.co$/    then Dealroom.parse(url, parts)
-      when /dealtinder\.com$/ then DealTinder.parse(url, parts)
-      when /linkedin\.com$/   then LinkedIn.parse(url, parts)
-      when /facebook\.com$/   then Facebook.parse(url, parts)
-      when /sociopath\.io$/   then Sociopath.parse(url, parts)
-      when /twitter\.com$/    then Twitter.parse(url, parts)
+      when /angel\.co$/
+        AngelList.parse(url, parts)
+      when /bloomberg\.com$/
+        Bloomberg.parse(url, parts)
+      when /capitaliq\.com$/
+        CapitalIQ.parse(url, parts)
+      when /crunchbase\.com$/
+        Crunchbase.parse(url, parts)
+      when /dealroom\.co$/
+        Dealroom.parse(url, parts)
+      when /dealtinder\.com$/
+        DealTinder.parse(url, parts)
+      when /facebook\.com$/
+        Facebook.parse(url, parts)
+      when /linkedin\.com$/
+        LinkedIn.parse(url, parts)
+      when /privateequityinternational\.com/
+        PEI.parse(url, parts)
+      when /sociopath\.io$/
+        Sociopath.parse(url, parts)
+      when /twitter\.com$/
+        Twitter.parse(url, parts)
       else nil
     end
 
@@ -42,6 +55,7 @@ module SocialLink
       when DealTinder::NAME then DealTinder.parse(url, parts)
       when Facebook::NAME   then Facebook.parse(url, parts)
       when LinkedIn::NAME   then LinkedIn.parse(url, parts)
+      when PEI::NAME        then PEI.parse(url, parts)
       when Sociopath::NAME  then Sociopath.parse(url, parts)
       when Twitter::NAME    then Twitter.parse(url, parts)
       else nil
@@ -58,6 +72,7 @@ module SocialLink
       when DealTinder::NAME then DealTinder.construct(id, format)
       when Facebook::NAME   then Facebook.construct(id, format)
       when LinkedIn::NAME   then LinkedIn.construct(id, format)
+      when PEI::NAME        then PEI.construct(id, format)
       when Sociopath::NAME  then Sociopath.construct(id, format)
       when Twitter::NAME    then Twitter.construct(id, format)
       else nil

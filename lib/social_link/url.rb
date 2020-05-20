@@ -1,7 +1,7 @@
 module SocialLink
   module URL
 
-    Result = Struct.new(:host, :path, :query)
+    Result = Struct.new(:host, :path, :query, :fragment)
 
     # https://github.com/sporkmonger/addressable/blob/master/lib/addressable/uri.rb
 
@@ -24,6 +24,7 @@ module SocialLink
       authority = fragments[3]
       path      = fragments[4]
       query     = fragments[6]
+      fragment  = fragments[8]
       host      = nil
 
       if authority != nil
@@ -34,7 +35,7 @@ module SocialLink
         )
       end
 
-      Result.new(host, path, query)
+      Result.new(host, path, query, fragment)
     end
 
   end
