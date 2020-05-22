@@ -11,11 +11,15 @@ module SocialLink
       begin
         uri = uri.to_str.strip
       rescue TypeError, NoMethodError
-        return Result.new(nil, nil, nil)
+        return Result.new(nil, nil, nil, nil)
       end
 
       unless uri =~ /^http/i
-        uri.prepend("http://") 
+        uri.prepend("http://")
+      end
+
+      unless uri.is_a?(String)
+        return nil
       end
 
       uri       = CGI::unescape(uri).scrub
