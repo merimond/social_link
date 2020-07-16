@@ -11,7 +11,7 @@ module SocialLink
       case parts.query
       when /companyId=(\d+)/
         { id: $1, format: "company" }
-      when /proId=(\d+)/
+      when /personId=(\d+)/
         { id: $1, format: "person" }
       else
         nil
@@ -33,7 +33,7 @@ module SocialLink
       when "company"
         "https://www.capitaliq.com/CIQDotNet/company.aspx?companyId=#{id}"
       when "person"
-        "https://www.capitaliq.com/CIQDotNet/Person/PersonProfile.aspx?proId=#{id}"
+        "https://www.capitaliq.com/CIQDotNet/person.aspx?personId=#{id}"
       else
         nil
       end
