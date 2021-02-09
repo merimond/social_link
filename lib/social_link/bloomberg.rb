@@ -13,6 +13,14 @@ module SocialLink
         { id: $1, format: "company-ticker" }
       when /^\/profile\/company\/([a-z0-9]{2,8}:[a-z]{2})-/i
         { id: $1, format: "company-ticker" }
+      when /^\/profile\/company\/([a-z0-9]{2,8}\/[a-z]:[a-z]{2})$/i
+        { id: $1, format: "company-ticker" }
+      when /^\/profile\/company\/([a-z0-9]{2,8}\/[a-z]:[a-z]{2})-/i
+        { id: $1, format: "company-ticker" }
+      when /^\/profile\/company\/([a-z0-9]{2,8}-[a-z]:[a-z]{2})$/i
+        { id: $1, format: "company-ticker" }
+      when /^\/profile\/company\/([a-z0-9]{2,8}-[a-z]:[a-z]{2})-/i
+        { id: $1, format: "company-ticker" }
       when /^\/profiles\/people\/([\d]+)$/i
         { id: $1, format: "person-numeric" }
       when /^\/profiles\/people\/([\d]+)-/i
