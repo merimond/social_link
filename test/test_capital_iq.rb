@@ -24,7 +24,7 @@ describe SocialLink::CapitalIQ do
         id:     "60807154",
         format: "person",
       }
-      assert_equal result, SocialLink::CapitalIQ.parse("https://www.capitaliq.com/CIQDotNet/Person/PersonProfile.aspx?proId=60807154")
+      assert_equal result, SocialLink::CapitalIQ.parse("https://www.capitaliq.com/CIQDotNet/Person/PersonProfile.aspx?personId=60807154")
     end
 
   end
