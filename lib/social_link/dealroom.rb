@@ -9,7 +9,9 @@ module SocialLink
         return nil
       end
       case parts.path.strip.downcase
-      when /^\/companies\/(\d+)/
+      when /^\/companies\/(\d+)$/
+        { id: $1, format: "company-numeric" }
+      when /^\/companies\/(\d+)\/(.+)/
         { id: $1, format: "company-numeric" }
       when /^\/companies\/(.+)/
         { id: $1, format: "company-slug" }

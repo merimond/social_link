@@ -14,6 +14,15 @@ describe SocialLink::Dealroom do
       assert_equal result, SocialLink::Dealroom.parse("https://app.dealroom.co/companies/123")
     end
 
+    it "parses URLs with extra paths" do
+      result = {
+        type:   "Dealroom",
+        id:     "123",
+        format: "company-numeric",
+      }
+      assert_equal result, SocialLink::Dealroom.parse("https://app.dealroom.co/companies/123/people")
+    end
+
   end
 
   describe "company slug format" do
@@ -27,7 +36,16 @@ describe SocialLink::Dealroom do
       assert_equal result, SocialLink::Dealroom.parse("https://app.dealroom.co/companies/abc-corp")
     end
 
+    it "parses URLs with numbers" do
+      result = {
+        type:   "Dealroom",
+        id:     "1000_corks",
+        format: "company-slug",
+      }
+      assert_equal result, SocialLink::Dealroom.parse("https://app.dealroom.co/companies/1000_corks")
+    end
   end
+
 
   describe "personal numeric format" do
 
