@@ -161,6 +161,15 @@ describe SocialLink::LinkedIn do
       assert_equal result, SocialLink::LinkedIn.parse("http://www.linkedin.com/profile/view?id=8324788")
     end
 
+    it "parses sales navigator format" do
+      result = {
+        type:   "LinkedIn",
+        id:     "323342",
+        format: "person-numeric",
+      }
+      assert_equal result, SocialLink::LinkedIn.parse("https://www.linkedin.com/sales/profile/323342,_jxB,name")
+    end
+
   end
 
   describe "alphanumeric personal URL" do

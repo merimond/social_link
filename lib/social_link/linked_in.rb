@@ -20,13 +20,9 @@ module SocialLink
         return nil
       end
       case parts.path.strip.downcase
-      when /^\/company-beta\/(\d+)$/
+      when /^\/company-beta\/(\d+)($|\/)/
         { id: $1, format: "company-numeric" }
-      when /^\/company-beta\/(\d+)\//
-        { id: $1, format: "company-numeric" }
-      when /^\/company\/(\d+)$/
-        { id: $1, format: "company-numeric" }
-      when /^\/company\/(\d+)\//
+      when /^\/company\/(\d+)($|\/)/
         { id: $1, format: "company-numeric" }
       when /^\/company\/([^\/]+)\/?/
         { id: $1, format: "company-slug" }
@@ -34,6 +30,8 @@ module SocialLink
         { id: $1, format: "person-slug" }
       when /^\/pub\/([^\/]+\/\w{1,3}\/\w{1,3}\/\w{1,3})\/?/
         { id: $1, format: "person-old" }
+      when /^\/sales\/profile\/(\d+)($|,)/
+        { id: $1, format: "person-numeric" }
       when /^\/profile\/view/
         parse_query_based_formats(parts.query)
       else
