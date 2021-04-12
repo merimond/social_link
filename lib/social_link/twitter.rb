@@ -22,8 +22,10 @@ module SocialLink
         return nil
       end
       case url.strip.downcase
-      when /@([a-z0-9_]+)/ # Common error
+      when /@([a-z0-9_]+)/
         { id: $1, format: "default" }
+      when /twitter\.com\/(https?:\/\/twitter\.com\/.+)$/
+        parse_valid($1)
       else
         nil
       end
