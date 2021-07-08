@@ -13,6 +13,10 @@ module SocialLink
         { id: $1, format: "company-uuid" }
       when /^\/companies\/([^\/]+)/
         { id: $1, format: "company-slug" }
+      when /^\/investors\/(\w{8}-\w{4}-\w{4}-\w{4}-\w{12})/
+        { id: $1, format: "company-uuid" }
+      when /^\/investors\/([^\/]+)/
+        { id: $1, format: "company-slug" }
       when /^\/people\/(\w{8}-\w{4}-\w{4}-\w{4}-\w{12})/
         { id: $1, format: "person-uuid" }
       when /^\/people\/([^\/]+)/
@@ -35,9 +39,9 @@ module SocialLink
     def self.construct(id, format)
       case format
       when "company-uuid"
-        "https://dealtinder.com/companies/#{id}"
+        "https://dealtinder.com/investors/#{id}"
       when "company-slug"
-        "https://dealtinder.com/companies/#{id}"
+        "https://dealtinder.com/investors/#{id}"
       when "person-uuid"
         "https://dealtinder.com/people/#{id}"
       when "person-slug"
