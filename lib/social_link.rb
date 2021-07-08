@@ -10,6 +10,7 @@ require "social_link/facebook"
 require "social_link/linked_in"
 require "social_link/pei"
 require "social_link/sociopath"
+require "social_link/signal"
 require "social_link/twitter"
 
 module SocialLink
@@ -35,6 +36,8 @@ module SocialLink
         LinkedIn.parse(url, parts)
       when /privateequityinternational\.com/
         PEI.parse(url, parts)
+      when /signal\.nfx\.com$/
+        Signal.parse(url, parts)
       when /sociopath\.io$/
         Sociopath.parse(url, parts)
       when /twitter\.com$/
@@ -57,6 +60,7 @@ module SocialLink
       when LinkedIn::NAME   then LinkedIn.parse(url, parts)
       when PEI::NAME        then PEI.parse(url, parts)
       when Sociopath::NAME  then Sociopath.parse(url, parts)
+      when Signal::NAME     then Signal.parse(url, parts)
       when Twitter::NAME    then Twitter.parse(url, parts)
       else nil
     end
@@ -74,6 +78,7 @@ module SocialLink
       when LinkedIn::NAME   then LinkedIn.construct(id, format)
       when PEI::NAME        then PEI.construct(id, format)
       when Sociopath::NAME  then Sociopath.construct(id, format)
+      when Signal::NAME     then Signal.construct(id, format)
       when Twitter::NAME    then Twitter.construct(id, format)
       else nil
     end
