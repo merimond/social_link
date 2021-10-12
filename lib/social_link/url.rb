@@ -39,6 +39,7 @@ module SocialLink
         )
       end
 
+      host = nil if host.is_a?(String) && host.empty?
       Result.new(host, path, query, fragment)
     end
 
