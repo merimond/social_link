@@ -14,12 +14,12 @@ module SocialLink
         return Result.new(nil, nil, nil, nil)
       end
 
-      unless uri =~ /^http/i
-        uri.prepend("http://")
+      unless uri.is_a?(String)
+        return Result.new(nil, nil, nil, nil)
       end
 
-      unless uri.is_a?(String)
-        return nil
+      unless uri =~ /^http/i
+        uri.prepend("http://")
       end
 
       uri       = CGI::unescape(uri).scrub
