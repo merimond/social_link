@@ -13,6 +13,10 @@ module SocialLink
         { id: $1, format: "company" }
       when /^\/([a-z0-9\._-]+)$/
         { id: $1, format: "person" }
+      when /^\/p\/([a-z0-9\._-]+)$/
+        { id: $1, format: "person" }
+      when /^\/u\/([a-z0-9\._-]+)$/
+        { id: $1, format: "person" }
       else
         nil
       end
