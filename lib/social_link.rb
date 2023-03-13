@@ -9,6 +9,7 @@ require "social_link/deal_tinder"
 require "social_link/facebook"
 require "social_link/linked_in"
 require "social_link/pei"
+require "social_link/pitch_book"
 require "social_link/sociopath"
 require "social_link/signal"
 require "social_link/twitter"
@@ -34,6 +35,8 @@ module SocialLink
         Facebook.parse(url, parts)
       when /linkedin\.com$/
         LinkedIn.parse(url, parts)
+      when /pitchbook\.com/
+        PitchBook.parse(url, parts)
       when /privateequityinternational\.com/
         PEI.parse(url, parts)
       when /signal\.nfx\.com$/
