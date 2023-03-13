@@ -14,7 +14,7 @@ module SocialLink
       when /^\/profiles\/company\/([\d-]+)($|\/)/i
         { id: $1, format: "company-numeric" }
       when /^\/profiles\/fund\/([\d-]+F)($|\/)/i
-        { id: $1, format: "fund" }
+        { id: $1, format: "fund-numeric" }
       when /^\/profiles\/investor\/([\d-]+)($|\/)/i
         { id: $1, format: "investor-numeric" }
       when /^\/profiles\/limited-partner\/([\d-]+)($|\/)/i
